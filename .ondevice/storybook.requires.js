@@ -50,8 +50,6 @@ try {
 const getStories = () => {
   return {
     "./components/Buttons/ButtonLess.stories.tsx": require("../components/Buttons/ButtonLess.stories.tsx"),
-    "./components/Buttons/ButtonLink.stories.tsx": require("../components/Buttons/ButtonLink.stories.tsx"),
-    "./components/Buttons/ButtonMain.stories.tsx": require("../components/Buttons/ButtonMain.stories.tsx"),
   };
 };
 
