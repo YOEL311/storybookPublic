@@ -1,16 +1,5 @@
 import { withBackgrounds } from '@storybook/addon-ondevice-backgrounds';
-import { withReactContext } from 'storybook-react-context';
-import { ThemeContext, defaultTheme } from '@leumi/theme';
 
-defaultTheme.colors.black = 'pink';
-
-export const decorators = [
-  withBackgrounds,
-  withReactContext({
-    Context: ThemeContext,
-    initialState: defaultTheme,
-  }),
-];
 export const parameters = {
   backgrounds: {
     default: 'plain',
