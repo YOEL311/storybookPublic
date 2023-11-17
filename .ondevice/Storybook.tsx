@@ -1,5 +1,3 @@
-import { getStorybookUI } from '@storybook/react-native';
-import './doctools';
-import './storybook.requires';
-const StorybookUIRoot = getStorybookUI({});
+import { view } from './storybook.requires';
+const StorybookUIRoot = view.getStorybookUI({});
 export default StorybookUIRoot;

@@ -21,9 +21,11 @@ const config = {
         inlineRequires: false,
       },
     }),
+    unstable_allowRequireContext: true,
   },
+
   resolver: {
-    resolverMainFields: ['sbmodern', 'react-native', 'browser', 'main'],
+    resolverMainFields: ['react-native', 'browser', 'main'],
     assetExts: assetExts.filter((ext) => ext !== 'svg'),
     sourceExts: [...sourceExts, 'svg', 'd.ts'],
   },
