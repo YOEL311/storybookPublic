@@ -13437,10 +13437,10 @@ test-exclude@^6.0.0:
     glob "^7.1.4"
     minimatch "^3.0.4"
 
-test-package-yoel-test@0.0.33:
-  version "0.0.33"
-  resolved "https://registry.yarnpkg.com/test-package-yoel-test/-/test-package-yoel-test-0.0.33.tgz#850afeb3be0749ca54e613d665fa2997f5fd0fd6"
-  integrity sha512-U0r+f0LGuw+PctU7DSB18LBD52mvzvglagHCRUpm/220cDuRctPVxCWc2X+L/rBofWnvTJEWgZ/U8k5ri6LqmA==
+test-package-yoel-test@0.0.34:
+  version "0.0.34"
+  resolved "https://registry.yarnpkg.com/test-package-yoel-test/-/test-package-yoel-test-0.0.34.tgz#af439cd3663e82e85be7ac4e3e17f1dec338aac3"
+  integrity sha512-92Wk/QPbC4JwGiIhfk9oLF57AMvOJaQSvA2G8vcUisZ7pbAG3AKV+TlYTSzcQT1FdTQowFlM9Yg6i3W4zPhKFQ==
   dependencies:
     "@react-navigation/native" "6.1.9"
     dayjs "1.11.6"

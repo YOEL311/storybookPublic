@@ -30,7 +30,7 @@
     "react-native-svg": "14.0.0",
     "react-native-web": "0.18.10",
     "react-native-web-linear-gradient": "1.1.2",
-    "test-package-yoel-test": "0.0.33"
+    "test-package-yoel-test": "0.0.34"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
