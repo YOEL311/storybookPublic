@@ -6,7 +6,7 @@ module.exports = {
     'justinanastos',
     'simple-import-sort',
   ],
-  extends: ['plugin:@typescript-eslint/recommended', '@react-native-community'],
+  extends: ['plugin:@typescript-eslint/recommended', '@react-native-community', 'plugin:storybook/recommended'],
   rules: {
     '@typescript-eslint/consistent-type-imports': 'error',
     '@typescript-eslint/explicit-module-boundary-types': 'error',
