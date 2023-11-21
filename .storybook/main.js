@@ -3,7 +3,6 @@ module.exports = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
-    '@storybook/addon-react-native-web',
     {
       name: '@storybook/addon-react-native-web',
       options: {
