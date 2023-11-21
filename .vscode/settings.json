@@ -1,0 +1,32 @@
+{
+  "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly",
+  "cSpell.language": "en,he",
+  "cSpell.words": ["leumi", "Pressable", "systemicon"],
+  "editor.tabSize": 2,
+  "eslint.alwaysShowStatus": true,
+  "prettier.singleQuote": false,
+  "prettier.bracketSameLine": true,
+  "prettier.useTabs": true,
+  "prettier.endOfLine": "lf",
+  "files.eol": "\n",
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "search.exclude": {
+    "/ios/**": true,
+    "/node_modules/**": true
+  },
+  "npm-scripts.showStartNotification": false,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "svg.preview.background": "white",
+  "javascript.preferences.quoteStyle": "single",
+  "typescript.preferences.quoteStyle": "single",
+  "editor.codeActionsOnSave": ["source.fixAll.eslint"]
+}
