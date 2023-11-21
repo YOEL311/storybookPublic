@@ -12,7 +12,7 @@ const config = {
         modulesToAlias: {
           'react-native-linear-gradient': 'react-native-web-linear-gradient',
         },
-        modulesToTranspile: ['react-native-reanimated', '@leumi/components'],
+        modulesToTranspile: ['react-native-reanimated'],
         babelPlugins: [
           '@babel/plugin-proposal-export-namespace-from',
           'react-native-reanimated/plugin',
@@ -33,6 +33,20 @@ const config = {
       '../mocks/cookies.js',
     );
 
+    const fileLoaderRule = config.module.rules.find((rule) =>
+      rule.test.test('.svg'),
+    );
+    fileLoaderRule.exclude = /\.svg$/;
+    config.module.rules.push({
+      test: /\.svg$/,
+      exclude: /node_modules/,
+      use: [{ loader: '@svgr/webpack' }],
+    });
+
+    return config;
+  },
+
+  webpackFinal: (config) => {
     return config;
   },
 };
