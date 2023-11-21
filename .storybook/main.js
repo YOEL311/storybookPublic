@@ -10,11 +10,6 @@ module.exports = {
         modulesToAlias: {
           'react-native-linear-gradient': 'react-native-web-linear-gradient',
         },
-      },
-    },
-    {
-      name: '@storybook/addon-react-native-web',
-      options: {
         modulesToTranspile: ['react-native-reanimated'],
         babelPlugins: [
           '@babel/plugin-proposal-export-namespace-from',
@@ -23,8 +18,13 @@ module.exports = {
       },
     },
   ],
-  framework: '@storybook/react',
-  core: {
-    builder: 'webpack5',
+
+  framework: {
+    name: '@storybook/react-webpack5',
+    options: {},
+  },
+
+  docs: {
+    autodocs: true,
   },
 };

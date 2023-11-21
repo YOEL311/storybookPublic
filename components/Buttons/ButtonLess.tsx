@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Button, StyleSheet, View } from 'react-native';
 import Animated, {
   useAnimatedStyle,
@@ -54,7 +53,6 @@ function MyAnimation(): JSX.Element {
 }
 
 export const MyButtonLess = ({ text }: ButtonProps): React.JSX.Element => {
-  const [isOpen, setIsOpen] = useState(false);
   return (
     <View style={styles.buttonContainer}>
       <MyAnimation />
