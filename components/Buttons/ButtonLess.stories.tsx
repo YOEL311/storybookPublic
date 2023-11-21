@@ -1,17 +1,14 @@
-import type { ComponentMeta, ComponentStory } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { MyButtonLess } from './ButtonLess';
 
 export default {
-  title: 'components/MyButton',
+  title: 'Buttons',
   component: MyButtonLess,
-} as ComponentMeta<typeof MyButtonLess>;
+} as Meta<typeof MyButtonLess>;
 
-export const BasicButtonLess: ComponentStory<typeof MyButtonLess> = (args) => (
-  <MyButtonLess {...args} />
-);
-
-BasicButtonLess.args = {
-  text: 'לינק',
-  color: 'black',
+export const BasicButtonLess: StoryObj<typeof MyButtonLess> = {
+  args: {
+    text: 'לינק',
+  },
 };
