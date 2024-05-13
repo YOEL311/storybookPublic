@@ -12,8 +12,7 @@
     "prestart": "yarn update-stories",
     "storybook-watcher": "sb-rn-watcher --config-path .ondevice",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "postinstall": "patch-package"
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@babel/plugin-proposal-export-namespace-from": "7.18.9",
@@ -23,7 +22,6 @@
     "@react-native-cookies/cookies": "6.2.1",
     "@shopify/react-native-skia": "^1.2.3",
     "node-polyfill-webpack-plugin": "^3.0.0",
-    "patch-package": "^8.0.0",
     "react": "18.2.0",
     "react-dom": "^18.2.0",
     "react-native": "0.71.4",

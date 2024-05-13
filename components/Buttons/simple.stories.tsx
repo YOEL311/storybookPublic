@@ -4,13 +4,12 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import type Simple from './simple';
 
-function SimpleLoadedBySkia(props) {
+function SimpleLoadedBySkia() {
   return (
     <WithSkiaWeb
       getComponent={() => {
         return require('./simple');
       }}
-      componentProps={props}
       fallback={<Text>Loading Skia...</Text>}
     />
   );
