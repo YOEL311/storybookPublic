@@ -1,0 +1,77 @@
+diff --git a/node_modules/@shopify/react-native-skia/lib/module/web/WithSkiaWeb.d.ts b/node_modules/@shopify/react-native-skia/lib/module/web/WithSkiaWeb.d.ts
+index 596482a..4cde392 100644
+--- a/node_modules/@shopify/react-native-skia/lib/module/web/WithSkiaWeb.d.ts
++++ b/node_modules/@shopify/react-native-skia/lib/module/web/WithSkiaWeb.d.ts
+@@ -1,12 +1,19 @@
+ import type { ComponentProps, ComponentType } from "react";
+ import React, { Suspense } from "react";
+ import { LoadSkiaWeb } from "./LoadSkiaWeb";
+-interface WithSkiaProps {
++type NonOptionalKeys<T> = {
++    [k in keyof T]-?: undefined extends T[k] ? never : k;
++}[keyof T];
++type WithSkiaProps<TProps> = {
+     fallback?: ComponentProps<typeof Suspense>["fallback"];
+     getComponent: () => Promise<{
+-        default: ComponentType;
++        default: ComponentType<TProps>;
+     }>;
+     opts?: Parameters<typeof LoadSkiaWeb>[0];
+-}
+-export declare const WithSkiaWeb: ({ getComponent, fallback, opts, }: WithSkiaProps) => React.JSX.Element;
++} & (NonOptionalKeys<TProps> extends never ? {
++    componentProps?: TProps;
++} : {
++    componentProps: TProps;
++});
++export declare const WithSkiaWeb: <TProps = {}>({ getComponent, fallback, opts, componentProps, }: WithSkiaProps<TProps>) => React.JSX.Element;
+ export {};
+diff --git a/node_modules/@shopify/react-native-skia/lib/module/web/WithSkiaWeb.js b/node_modules/@shopify/react-native-skia/lib/module/web/WithSkiaWeb.js
+index d6b51cb..f4a869f 100644
+--- a/node_modules/@shopify/react-native-skia/lib/module/web/WithSkiaWeb.js
++++ b/node_modules/@shopify/react-native-skia/lib/module/web/WithSkiaWeb.js
+@@ -1,24 +1,37 @@
+-import React, { useMemo, lazy, Suspense } from "react";
++import React, { useMemo, lazy, Suspense, useState, useEffect } from "react";
+ import { Platform } from "../Platform";
+ import { LoadSkiaWeb } from "./LoadSkiaWeb";
+ export const WithSkiaWeb = ({
+   getComponent,
+   fallback,
+-  opts
++  opts,
++  componentProps
+ }) => {
++  const [isSkiaLoaded, setIsSkiaLoaded] = useState(false);
+   const Inner = useMemo(
+   // TODO: investigate
+   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+   () => /*#__PURE__*/lazy(async () => {
+-    if (Platform.OS === "web") {
+-      await LoadSkiaWeb(opts);
+-    } else {
++    if (Platform.OS !== "web") {
+       console.warn("<WithSkiaWeb /> is only necessary on web. Consider not using on native.");
+     }
+     return getComponent();
+   }), [getComponent, opts]);
++  useEffect(() => {
++    LoadSkiaWeb(opts).then(() => {
++      setIsSkiaLoaded(true);
++    }).catch(error => {
++      // Throwing inside setState surfaces the error to the nearest error boundary
++      setIsSkiaLoaded(() => {
++        throw error;
++      });
++    });
++  }, [opts]);
++  if (!isSkiaLoaded) {
++    return /*#__PURE__*/React.createElement(React.Fragment, null, fallback);
++  }
+   return /*#__PURE__*/React.createElement(Suspense, {
+     fallback: fallback !== null && fallback !== void 0 ? fallback : null
+-  }, /*#__PURE__*/React.createElement(Inner, null));
++  }, /*#__PURE__*/React.createElement(Inner, componentProps));
+ };
+ //# sourceMappingURL=WithSkiaWeb.js.map
+\ No newline at end of file

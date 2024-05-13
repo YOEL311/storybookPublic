@@ -1,6 +1,14 @@
 import { Canvas, Fill, RoundedRect, Shadow } from '@shopify/react-native-skia';
 
-const Neumorphism = (): JSX.Element => {
+// const SkiaShadow = (props: SkiaShadowProps): JSX.Element => {
+
+interface Props {
+  a: string;
+  b: string;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const Neumorphism = (props: Props): JSX.Element => {
   return (
     <Canvas style={{ width: 256, height: 256 }}>
       <Fill color="lightblue" />
